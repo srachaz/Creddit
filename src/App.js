@@ -1,4 +1,6 @@
 import * as React from "react";
+import TopArticles from './TopArticles'; // Adjust the path as necessary
+import CryptoSentiment from './CryptoSentiment';
 
 export default function App(props) {
   return (
@@ -11,7 +13,7 @@ export default function App(props) {
         />
       </div>
       <div className="flex gap-0 justify-between px-5 w-full max-md:flex-wrap max-md:max-w-full">
-        <div className="flex flex-col px-4 pt-4 pb-12 text-lg basis-0 bg-zinc-900 text-neutral-400">
+        <div className="flex flex-col px-4 pt-4 pb-12 text-lg bg-zinc-900 text-neutral-400" style={{ width: '25%' }}> {/* Adjusted sidebar width */}
           <div className="flex gap-5 justify-between py-5 pr-9 pl-4 text-emerald-300 rounded-md border-2 border-emerald-300 border-solid bg-emerald-300 bg-opacity-30 max-md:pr-5">
             <div>For You</div>
             <img
@@ -22,28 +24,20 @@ export default function App(props) {
           </div>
           <div className="mt-5 text-white">Hot Topics</div>
           <div className="shrink-0 mt-2.5 h-px bg-white" />
+          {/* Sidebar content */}
           <div className="justify-center items-start py-3 pr-16 pl-5 mt-4 text-white whitespace-nowrap bg-black rounded-sm border border-solid border-zinc-400 max-md:pr-5">
             EigenFi
           </div>
-          <div className="self-start mt-3.5 ml-6 whitespace-nowrap max-md:ml-2.5">
-            Decentralized Social{" "}
-          </div>
-          <div className="justify-center items-start py-3 pr-16 pl-5 mt-3.5 whitespace-nowrap bg-black rounded-sm max-md:pr-5">
-            Restaking
-          </div>
-          <div className="self-start mt-3 ml-6 whitespace-nowrap max-md:ml-2.5">
-            Starknet Airdrop
-          </div>
-          <div className="justify-center items-start py-3.5 pr-16 pl-5 mt-2 whitespace-nowrap bg-black rounded-sm max-md:pr-5">
-            Farcaster
-          </div>
-          <div className="self-start mt-3.5 ml-6 max-md:ml-2.5">Sudolabel </div>
+          {/* More sidebar content */}
           <div className="justify-center items-start py-3.5 pr-16 pl-5 mt-3.5 whitespace-nowrap bg-black rounded-sm max-md:pr-5">
             Ion Protocol{" "}
           </div>
+          {/* Insert TopArticles component */}
+          <TopArticles searchQuery="crypto" /> {/* Adjust props as needed */}
         </div>
         <div className="w-0.5 bg-zinc-600 h-[782px]" />
         <div className="flex flex-col flex-1 self-start mt-4 max-md:max-w-full">
+          {/* Central component content exactly as provided */}
           <div className="flex gap-5 justify-between self-center px-4 py-3 max-w-full text-2xl font-bold text-white whitespace-nowrap rounded-3xl border border-white border-solid shadow-sm bg-zinc-600 w-[591px] max-md:flex-wrap">
             <img
               loading="lazy"
@@ -52,7 +46,34 @@ export default function App(props) {
             />
             <div className="flex-auto">Search</div>
           </div>
-          <div className="flex gap-5 justify-between px-6 py-7 mt-24 rounded-2xl border-2 border-solid bg-zinc-900 border-zinc-600 max-md:flex-wrap max-md:px-5 max-md:mt-10 max-md:max-w-full">
+          {/* Sentiment Scores Section */}
+<div className="mt-4 text-center w-full">
+  <h2 className="text-2xl font-bold text-gray-800 mb-4">News Sentiment Scores of Top Crypto</h2>
+</div>
+<div className="mt-2 text-center w-full">
+  <h2 className="text-sm font-normal text-gray-300 mb-2">-1.5 (Negative) to 1.5 (Positive)</h2>
+</div>
+<div className="mt-4 flex justify-around items-center flex-wrap">
+  <div className="p-4 border border-gray-200 rounded-lg shadow flex flex-row items-center">
+    <img src="https://cdn.pixabay.com/photo/2015/08/27/11/20/bitcoin-910307_640.png" alt="Bitcoin" className="w-16 h-16 mr-4" />
+    <CryptoSentiment cryptoSymbol="BTC" />
+  </div>
+  {/* Adjust other boxes similarly */}
+  <div className="p-4 border border-gray-200 rounded-lg shadow flex flex-row items-center">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1257px-Ethereum_logo_2014.svg.png" alt="Ethereum" className="w-16 h-16 mr-4" />
+    <CryptoSentiment cryptoSymbol="ETH" />
+  </div>
+  <div className="p-4 border border-gray-200 rounded-lg shadow flex flex-row items-center">
+    <img src="https://upload.wikimedia.org/wikipedia/en/b/b9/Solana_logo.png" alt="Solana" className="w-16 h-16 mr-4" />
+    <CryptoSentiment cryptoSymbol="SOL" />
+  </div>
+  <div className="p-4 border border-gray-200 rounded-lg shadow flex flex-row items-center">
+    <img src="https://cryptologos.cc/logos/bnb-bnb-logo.png" alt="BNB" className="w-16 h-16 mr-4" />
+    <CryptoSentiment cryptoSymbol="BNB" />
+  </div>
+</div>
+
+          <div className="flex gap-5 justify-between px-6 py-7 mt-8 rounded-2xl border-2 border-solid bg-zinc-900 border-zinc-600 max-md:flex-wrap max-md:px-5 max-md:mt-10 max-md:max-w-full">
             <div className="flex flex-col flex-1 text-white max-md:max-w-full">
               <div className="flex gap-4 self-start text-lg whitespace-nowrap">
                 <div className="bg-emerald-300 rounded-full h-[57px] w-[57px]" />
